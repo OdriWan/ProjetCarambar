@@ -14,14 +14,14 @@ Cette application web constitue un projet de sélection pour rejoindre la format
 
 ## Prérequis
 
-Node JS : https://nodejs.org/docs/latest/api/
-Express JS : https://expressjs.com/en/5x/api.html
-Sequelize : https://sequelize.org/api/v7/
+Node JS : https://nodejs.org/docs/latest/api/  
+Express JS : https://expressjs.com/en/5x/api.html  
+Sequelize : https://sequelize.org/api/v7/  
 SQLite : https://www.sqlite.org/docs.html
 
 ## Installation
 
-npm install : Installation des dépendances
+npm install : Installation des dépendances  
 npm start : Lancement de l'application
 
 ## Construit avec
@@ -30,7 +30,7 @@ npm start : Lancement de l'application
 
 #### Déploiement
 
-Déploiement avec Render.com : https://projetcarambar.onrender.com/
+Déploiement avec Render.com : https://projetcarambar.onrender.com/  
 Front via Github Pages : https://odriwan.github.io/ProjetCarambar/
 
 ## Documentation
