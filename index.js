@@ -1,33 +1,31 @@
 const express = require("express");
 const sequelize = require("./config/database");
-const Blague = require("./models/Blague");
+const BlagueRouter = require("./routes/blagueRouter");
 
+//Port de l'app
+const port = 3000;
+
+/**
+ * Synchronisation de la base de données :
+ * - force : supprime les données à chaque mise à jour
+ * - alter : met à jour la bdd sans supprimer les données
+ */
 sequelize.sync({ alter: true }).then(() => console.log("database is ready"));
 
 const app = express();
 
+//Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
-app.post("/blagues", async (req, res) => {
-  await Blague.create(req.body);
-  res.send("Blague insérée");
-});
+//Outil d'affichage pour la vue
+app.set("view engine", "ejs");
 
-app.get("/blagues", async (req, res) => {
-  const jokes = await Blague.findAll();
-  res.send(jokes);
-});
+//Ajout d'un routeur
+app.use("/", BlagueRouter);
 
-app.get("/blagues/random", async (req, res) => {
-  const randomJoke = await Blague.findOne({ order: sequelize.random() });
-  res.send(randomJoke);
-});
-
-app.get("/blagues/:id", async (req, res) => {
-  const jokeById = await Blague.findByPk(req.params.id);
-  res.send(jokeById);
-});
-
-app.listen(3000, () => {
+//Permet d'écouter l'appli sur le port spécifié
+app.listen(port, () => {
   console.log("app is running");
 });
