@@ -6,7 +6,7 @@ h1 {
 body {
   margin-top: 5%;
   font-family: montserrat, monospace;
-  background-image: url(/assets/background.jpg);
+  background-image: url(/assets/background.png);
   background-size: cover;
   text-align: center;
 }
